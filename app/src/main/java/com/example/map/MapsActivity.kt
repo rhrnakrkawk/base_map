@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Looper
 import android.util.Log
+import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -34,13 +36,13 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_maps)
+        main()
 
-        if(isPermitted()){
-            startProcess()
-        } else{
-            ActivityCompat.requestPermissions(this, permissions, PERM_FLAG)
-        }
+//        if(isPermitted()){
+//            startProcess()
+//        } else{
+//            ActivityCompat.requestPermissions(this, permissions, PERM_FLAG)
+//        }
 
 
         //binding = ActivityMapsBinding.inflate(layoutInflater)
@@ -59,7 +61,24 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
      */
+    fun main(){
+        setContentView(R.layout.activity_main)
+        val bt_start: Button = findViewById(R.id.bt_start)
 
+        bt_start.setOnClickListener(){
+            maps()
+        }
+
+
+    }
+    fun maps(){
+        setContentView(R.layout.activity_maps)
+        if(isPermitted()){
+            startProcess()
+        } else{
+            ActivityCompat.requestPermissions(this, permissions, PERM_FLAG)
+        }
+    }
     fun isPermitted() : Boolean{
         for(perm in permissions){
             if(ContextCompat.checkSelfPermission(this, perm) != PERMISSION_GRANTED)
