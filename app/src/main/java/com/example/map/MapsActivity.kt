@@ -24,7 +24,7 @@ import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationResult
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.model.CameraPosition
-
+///hello
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     val permissions = arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION, android.Manifest.permission.ACCESS_COARSE_LOCATION)
     val PERM_FLAG = 99
