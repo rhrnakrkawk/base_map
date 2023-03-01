@@ -8,6 +8,9 @@ android {
     namespace 'com.example.map'
     compileSdk 33
 
+    task wrapper(type: Wrapper) {
+        gradleVersion = '7.0'
+    }
     defaultConfig {
         applicationId "com.example.map"
         minSdk 19
